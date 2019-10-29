@@ -54,17 +54,20 @@
 			<div class="modal-dialog modal-dialog-centered" role="document">
 				<div class="modal-content">
 					<div class="modal-header">
-						<h5 class="modal-title" id="exampleModalLabel">Daily Meal Plan Requirements</h5>
+						<h5 class="modal-title" id="exampleModalLabel">Daily Meal
+							Plan Requirements</h5>
 						<button type="button" class="close" data-dismiss="modal"
 							aria-label="Close">
 							<span aria-hidden="true">&times;</span>
 						</button>
 					</div>
 					<div class="modal-body">
-						<form th:action="@{/generatePlan}" method="POST" th:object="${form}">
+						<form th:action="@{/generatePlan}" method="POST"
+							th:object="${form}">
 							<div class="form-group">
-								<label for="exampleInputEmail1">Calorie Requirements</label> <input type="text"
-									class="form-control" name="calories" placeholder="Enter Required Calories">
+								<label for="exampleInputEmail1">Calorie Requirements</label> <input
+									type="text" class="form-control" name="calories"
+									placeholder="Enter Required Calories">
 							</div>
 							<div class="form-group">
 								<label for="exampleFormControlSelect1">Suggested Diet</label><select

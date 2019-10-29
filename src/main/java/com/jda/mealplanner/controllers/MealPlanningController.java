@@ -6,8 +6,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.thymeleaf.spring5.context.webflux.ReactiveDataDriverContextVariable;
 
 import com.jda.mealplanner.spoonacular.service.MealPlanningService;
@@ -27,10 +25,11 @@ public class MealPlanningController {
 	public String planning(Model model) {
 		return "planning";
 	}
-	
+
 	@PostMapping("/generatePlan")
 	public String add(@ModelAttribute("form") GenerateMealPlan form, Model model) {
-		model.addAttribute("meals", new ReactiveDataDriverContextVariable(service.generate(Integer.valueOf(form.getCalories()), form.getSuggestedDiet()), 1));
+		model.addAttribute("meals", new ReactiveDataDriverContextVariable(
+				service.generate(Integer.valueOf(form.getCalories()), form.getSuggestedDiet()), 1));
 		return "planning";
 	}
 }

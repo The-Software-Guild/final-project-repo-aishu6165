@@ -20,22 +20,25 @@ public class Step {
 	public List<Equipment> equipment = null;
 	@JsonProperty("length")
 	public Length length;
+
 	public int getNumber() {
 		return number;
 	}
+
 	public String getStep() {
 		return step;
 	}
+
 	public List<Ingredient> getIngredients() {
 		return ingredients;
 	}
+
 	public List<Equipment> getEquipment() {
 		return equipment;
 	}
+
 	public Length getLength() {
 		return length;
 	}
-	
-	
 
 }
