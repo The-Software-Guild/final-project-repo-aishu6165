@@ -8,13 +8,11 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 @JsonPropertyOrder({ "name", "image", "amount" })
 public class Ingredient {
 
-	@JsonProperty("amount")
 	public Amount amount;
-	@JsonProperty("name")
 	public String name;
-	@JsonProperty("image")
 	public String image;
 
+	@JsonProperty("amount")
 	public Amount getAmount() {
 		return amount;
 	}
@@ -23,6 +21,7 @@ public class Ingredient {
 		this.amount = amount;
 	}
 
+	@JsonProperty("name")
 	public String getName() {
 		return name;
 	}
@@ -31,6 +30,7 @@ public class Ingredient {
 		this.name = name;
 	}
 
+	@JsonProperty("image")
 	public String getImage() {
 		return image;
 	}

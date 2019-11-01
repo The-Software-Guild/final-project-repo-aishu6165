@@ -8,11 +8,10 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 @JsonPropertyOrder({ "metric", "us" })
 public class Amount {
 
-	@JsonProperty("metric")
-	public Metric metric;
-	@JsonProperty("us")
-	public Us us;
+	private Metric metric;
+	private Us us;
 
+	@JsonProperty("metric")
 	public Metric getMetric() {
 		return metric;
 	}
@@ -21,6 +20,7 @@ public class Amount {
 		this.metric = metric;
 	}
 
+	@JsonProperty("us")
 	public Us getUs() {
 		return us;
 	}

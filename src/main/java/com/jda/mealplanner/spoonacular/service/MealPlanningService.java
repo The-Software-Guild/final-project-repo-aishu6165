@@ -34,7 +34,9 @@ public class MealPlanningService {
 		})
 		.retrieve()
 		.bodyToMono(GenerateSingleDayMealPlanResponse.class);
-		return resp.subscribeOn(Schedulers.boundedElastic()).flatMapIterable(mealResp -> mealResp.getMeals())
+		return resp.subscribeOn(Schedulers.boundedElastic())
+				.log()
+				.flatMapIterable(mealResp -> mealResp.getMeals())
 				.flatMap(meal -> {
 					Mono<RecipeResponse> recipeResponse = client.get().uri(uriBuilder -> {
 						uriBuilder.path(RECIPE_INFO_URL).queryParam("apiKey", API_KEY);
@@ -43,6 +45,7 @@ public class MealPlanningService {
 					.retrieve()
 					.bodyToMono(RecipeResponse.class);
 					return recipeResponse.subscribeOn(Schedulers.boundedElastic())
+							.log()
 							.map(recipe -> new MealInfo(meal.getTitle(), meal.getReadyInMinutes(),
 									recipe.getAnalyzedInstructions().stream()
 										  .flatMap(instr -> instr.getSteps().stream()).map(step -> step.getStep())

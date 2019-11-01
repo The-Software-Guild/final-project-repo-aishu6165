@@ -15,221 +15,220 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 		"analyzedInstructions" })
 public class RecipeResponse {
 
-	@JsonProperty("vegetarian")
-	public boolean vegetarian;
-	@JsonProperty("vegan")
-	public boolean vegan;
-	@JsonProperty("glutenFree")
-	public boolean glutenFree;
-	@JsonProperty("dairyFree")
-	public boolean dairyFree;
-	@JsonProperty("veryHealthy")
-	public boolean veryHealthy;
-	@JsonProperty("cheap")
-	public boolean cheap;
-	@JsonProperty("veryPopular")
-	public boolean veryPopular;
-	@JsonProperty("sustainable")
-	public boolean sustainable;
-	@JsonProperty("weightWatcherSmartPoints")
-	public int weightWatcherSmartPoints;
-	@JsonProperty("gaps")
-	public String gaps;
-	@JsonProperty("lowFodmap")
-	public boolean lowFodmap;
-	@JsonProperty("ketogenic")
-	public boolean ketogenic;
-	@JsonProperty("whole30")
-	public boolean whole30;
-	@JsonProperty("preparationMinutes")
-	public int preparationMinutes;
-	@JsonProperty("cookingMinutes")
-	public int cookingMinutes;
-	@JsonProperty("sourceUrl")
-	public String sourceUrl;
-	@JsonProperty("spoonacularSourceUrl")
-	public String spoonacularSourceUrl;
-	@JsonProperty("aggregateLikes")
-	public int aggregateLikes;
-	@JsonProperty("spoonacularScore")
-	public double spoonacularScore;
-	@JsonProperty("healthScore")
-	public double healthScore;
-	@JsonProperty("creditsText")
-	public String creditsText;
-	@JsonProperty("sourceName")
-	public String sourceName;
-	@JsonProperty("pricePerServing")
-	public double pricePerServing;
-	@JsonProperty("extendedIngredients")
-	public List<ExtendedIngredient> extendedIngredients = null;
-	@JsonProperty("id")
-	public int id;
-	@JsonProperty("title")
-	public String title;
-	@JsonProperty("readyInMinutes")
-	public int readyInMinutes;
-	@JsonProperty("servings")
-	public int servings;
-	@JsonProperty("image")
-	public String image;
-	@JsonProperty("imageType")
-	public String imageType;
-	@JsonProperty("cuisines")
-	public List<Object> cuisines = null;
-	@JsonProperty("dishTypes")
-	public List<String> dishTypes = null;
-	@JsonProperty("diets")
-	public List<String> diets = null;
-	@JsonProperty("occasions")
-	public List<String> occasions = null;
-	@JsonProperty("winePairing")
-	public WinePairing winePairing;
-	@JsonProperty("instructions")
-	public String instructions;
-	@JsonProperty("analyzedInstructions")
-	public List<AnalyzedInstruction> analyzedInstructions = null;
+	private boolean vegetarian;
+	private boolean vegan;
+	private boolean glutenFree;
+	private boolean dairyFree;
+	private boolean veryHealthy;
+	private boolean cheap;
+	private boolean veryPopular;
+	private boolean sustainable;
+	private int weightWatcherSmartPoints;
+	private String gaps;
+	private boolean lowFodmap;
+	private boolean ketogenic;
+	private boolean whole30;
+	private int preparationMinutes;
+	private int cookingMinutes;
+	private String sourceUrl;
+	private String spoonacularSourceUrl;
+	private int aggregateLikes;
+	private double spoonacularScore;
+	private double healthScore;
+	private String creditsText;
+	private String sourceName;
+	private double pricePerServing;
+	private List<ExtendedIngredient> extendedIngredients = null;
+	private int id;
+	private String title;
+	private int readyInMinutes;
+	private int servings;
+	private String image;
+	private String imageType;
+	private List<Object> cuisines = null;
+	private List<String> dishTypes = null;
+	private List<String> diets = null;
+	private List<String> occasions = null;
+	private WinePairing winePairing;
+	private String instructions;
+	private List<AnalyzedInstruction> analyzedInstructions = null;
 
+	@JsonProperty("vegetarian")
 	public boolean isVegetarian() {
 		return vegetarian;
 	}
 
+	@JsonProperty("vegan")
 	public boolean isVegan() {
 		return vegan;
 	}
 
+	@JsonProperty("glutenFree")
 	public boolean isGlutenFree() {
 		return glutenFree;
 	}
 
+	@JsonProperty("dairyFree")
 	public boolean isDairyFree() {
 		return dairyFree;
 	}
 
+	@JsonProperty("veryHealthy")
 	public boolean isVeryHealthy() {
 		return veryHealthy;
 	}
 
+	@JsonProperty("cheap")
 	public boolean isCheap() {
 		return cheap;
 	}
 
+	@JsonProperty("veryPopular")
 	public boolean isVeryPopular() {
 		return veryPopular;
 	}
 
+	@JsonProperty("sustainable")
 	public boolean isSustainable() {
 		return sustainable;
 	}
 
+	@JsonProperty("weightWatcherSmartPoints")
 	public int getWeightWatcherSmartPoints() {
 		return weightWatcherSmartPoints;
 	}
 
+	@JsonProperty("gaps")
 	public String getGaps() {
 		return gaps;
 	}
 
+	@JsonProperty("lowFodmap")
 	public boolean isLowFodmap() {
 		return lowFodmap;
 	}
 
+	@JsonProperty("ketogenic")
 	public boolean isKetogenic() {
 		return ketogenic;
 	}
 
+	@JsonProperty("whole30")
 	public boolean isWhole30() {
 		return whole30;
 	}
 
+	@JsonProperty("preparationMinutes")
 	public int getPreparationMinutes() {
 		return preparationMinutes;
 	}
 
+	@JsonProperty("cookingMinutes")
 	public int getCookingMinutes() {
 		return cookingMinutes;
 	}
 
+	@JsonProperty("sourceUrl")
 	public String getSourceUrl() {
 		return sourceUrl;
 	}
 
+	@JsonProperty("spoonacularSourceUrl")
 	public String getSpoonacularSourceUrl() {
 		return spoonacularSourceUrl;
 	}
 
+	@JsonProperty("aggregateLikes")
 	public int getAggregateLikes() {
 		return aggregateLikes;
 	}
 
+	@JsonProperty("spoonacularScore")
 	public double getSpoonacularScore() {
 		return spoonacularScore;
 	}
 
+	@JsonProperty("healthScore")
 	public double getHealthScore() {
 		return healthScore;
 	}
 
+	@JsonProperty("creditsText")
 	public String getCreditsText() {
 		return creditsText;
 	}
 
+	@JsonProperty("sourceName")
 	public String getSourceName() {
 		return sourceName;
 	}
 
+	@JsonProperty("pricePerServing")
 	public double getPricePerServing() {
 		return pricePerServing;
 	}
 
+	@JsonProperty("extendedIngredients")
 	public List<ExtendedIngredient> getExtendedIngredients() {
 		return extendedIngredients;
 	}
 
+	@JsonProperty("id")
 	public int getId() {
 		return id;
 	}
 
+	@JsonProperty("title")
 	public String getTitle() {
 		return title;
 	}
 
+	@JsonProperty("readyInMinutes")
 	public int getReadyInMinutes() {
 		return readyInMinutes;
 	}
 
+	@JsonProperty("servings")
 	public int getServings() {
 		return servings;
 	}
 
+	@JsonProperty("image")
 	public String getImage() {
 		return image;
 	}
 
+	@JsonProperty("imageType")
 	public String getImageType() {
 		return imageType;
 	}
 
+	@JsonProperty("cuisines")
 	public List<Object> getCuisines() {
 		return cuisines;
 	}
 
+	@JsonProperty("dishTypes")
 	public List<String> getDishTypes() {
 		return dishTypes;
 	}
 
+	@JsonProperty("diets")
 	public List<String> getDiets() {
 		return diets;
 	}
 
+	@JsonProperty("occasions")
 	public List<String> getOccasions() {
 		return occasions;
 	}
 
+	@JsonProperty("winePairing")
 	public WinePairing getWinePairing() {
 		return winePairing;
 	}
 
+	@JsonProperty("instructions")
 	public String getInstructions() {
 		return instructions;
 	}
@@ -239,92 +238,74 @@ public class RecipeResponse {
 		return analyzedInstructions;
 	}
 
-	@JsonProperty("vegetarian")
 	public void setVegetarian(boolean vegetarian) {
 		this.vegetarian = vegetarian;
 	}
 
-	@JsonProperty("vegan")
 	public void setVegan(boolean vegan) {
 		this.vegan = vegan;
 	}
 
-	@JsonProperty("glutenFree")
 	public void setGlutenFree(boolean glutenFree) {
 		this.glutenFree = glutenFree;
 	}
 
-	@JsonProperty("dairyFree")
 	public void setDairyFree(boolean dairyFree) {
 		this.dairyFree = dairyFree;
 	}
 
-	@JsonProperty("veryHealthy")
 	public void setVeryHealthy(boolean veryHealthy) {
 		this.veryHealthy = veryHealthy;
 	}
 
-	@JsonProperty("cheap")
 	public void setCheap(boolean cheap) {
 		this.cheap = cheap;
 	}
 
-	@JsonProperty("veryPopular")
 	public void setVeryPopular(boolean veryPopular) {
 		this.veryPopular = veryPopular;
 	}
 
-	@JsonProperty("sustainable")
 	public void setSustainable(boolean sustainable) {
 		this.sustainable = sustainable;
 	}
 
-	@JsonProperty("weightWatcherSmartPoints")
 	public void setWeightWatcherSmartPoints(int weightWatcherSmartPoints) {
 		this.weightWatcherSmartPoints = weightWatcherSmartPoints;
 	}
 
-	@JsonProperty("gaps")
 	public void setGaps(String gaps) {
 		this.gaps = gaps;
 	}
 
-	@JsonProperty("lowFodmap")
 	public void setLowFodmap(boolean lowFodmap) {
 		this.lowFodmap = lowFodmap;
 	}
 
-	@JsonProperty("ketogenic")
 	public void setKetogenic(boolean ketogenic) {
 		this.ketogenic = ketogenic;
 	}
 
-	@JsonProperty("whole30")
 	public void setWhole30(boolean whole30) {
 		this.whole30 = whole30;
 	}
 
-	@JsonProperty("preparationMinutes")
 	public void setPreparationMinutes(int preparationMinutes) {
 		this.preparationMinutes = preparationMinutes;
 	}
 
-	@JsonProperty("cookingMinutes")
 	public void setCookingMinutes(int cookingMinutes) {
 		this.cookingMinutes = cookingMinutes;
 	}
 
-	@JsonProperty("sourceUrl")
 	public void setSourceUrl(String sourceUrl) {
 		this.sourceUrl = sourceUrl;
 	}
 
-	@JsonProperty("spoonacularSourceUrl")
 	public void setSpoonacularSourceUrl(String spoonacularSourceUrl) {
 		this.spoonacularSourceUrl = spoonacularSourceUrl;
 	}
 
-	@JsonProperty("aggregateLikes")
 	public void setAggregateLikes(int aggregateLikes) {
 		this.aggregateLikes = aggregateLikes;
 	}
@@ -401,7 +382,6 @@ public class RecipeResponse {
 		this.instructions = instructions;
 	}
 
-	@JsonProperty("analyzedInstructions")
 	public void setAnalyzedInstructions(List<AnalyzedInstruction> analyzedInstructions) {
 		this.analyzedInstructions = analyzedInstructions;
 	}

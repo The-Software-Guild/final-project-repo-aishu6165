@@ -8,13 +8,9 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 @JsonPropertyOrder({ "calories", "carbohydrates", "fat", "protein" })
 public class Nutrients {
 
-	@JsonProperty("calories")
 	private double calories;
-	@JsonProperty("carbohydrates")
 	private double carbohydrates;
-	@JsonProperty("fat")
 	private double fat;
-	@JsonProperty("protein")
 	private double protein;
 
 	@JsonProperty("calories")
@@ -22,7 +18,6 @@ public class Nutrients {
 		return calories;
 	}
 
-	@JsonProperty("calories")
 	public void setCalories(double calories) {
 		this.calories = calories;
 	}
@@ -32,7 +27,6 @@ public class Nutrients {
 		return carbohydrates;
 	}
 
-	@JsonProperty("carbohydrates")
 	public void setCarbohydrates(double carbohydrates) {
 		this.carbohydrates = carbohydrates;
 	}
@@ -42,7 +36,6 @@ public class Nutrients {
 		return fat;
 	}
 
-	@JsonProperty("fat")
 	public void setFat(double fat) {
 		this.fat = fat;
 	}
@@ -52,7 +45,6 @@ public class Nutrients {
 		return protein;
 	}
 
-	@JsonProperty("protein")
 	public void setProtein(double protein) {
 		this.protein = protein;
 	}

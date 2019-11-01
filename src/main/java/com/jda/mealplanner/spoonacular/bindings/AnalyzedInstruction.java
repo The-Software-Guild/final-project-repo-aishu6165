@@ -1,5 +1,6 @@
 package com.jda.mealplanner.spoonacular.bindings;
 
+import java.util.Collections;
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -10,10 +11,8 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 @JsonPropertyOrder({ "name", "steps" })
 public class AnalyzedInstruction {
 
-	@JsonProperty("name")
-	public String name;
-	@JsonProperty("steps")
-	public List<Step> steps = null;
+	private String name;
+	private List<Step> steps = Collections.emptyList();
 
 	@JsonProperty("name")
 	public String getName() {
@@ -22,6 +21,15 @@ public class AnalyzedInstruction {
 
 	public List<Step> getSteps() {
 		return steps;
+	}
+
+	@JsonProperty("name")
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public void setSteps(List<Step> steps) {
+		this.steps = steps;
 	}
 
 }

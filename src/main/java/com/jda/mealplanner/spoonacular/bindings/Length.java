@@ -8,9 +8,25 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 @JsonPropertyOrder({ "number", "unit" })
 public class Length {
 
+	private int number;
+	private String unit;
+
 	@JsonProperty("number")
-	public int number;
+	public int getNumber() {
+		return number;
+	}
+
+	public void setNumber(int number) {
+		this.number = number;
+	}
+
 	@JsonProperty("unit")
-	public String unit;
+	public String getUnit() {
+		return unit;
+	}
+
+	public void setUnit(String unit) {
+		this.unit = unit;
+	}
 
 }
