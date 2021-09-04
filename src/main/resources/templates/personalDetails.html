@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Daily Meal Plan Page</title>
+  <style type="text/css">
+    .footer {
+   position: static;
+   left: 0;
+   bottom: 0;
+   width: 100%;
+   background-color: #860606;
+   color: white;
+   text-align: center;
+   height: 25px;
+    margin-top: 300px;
+}
+a {
+  margin-left: 10px;
+}
+  </style>
+  <link rel="stylesheet"
+        href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+<body>
+<section id="header">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light" style=
+          "background-color: #911c1c!important">
+    <a class="navbar-brand" href="home" style="color:white;">Daily Meal Planner <span class="sr-only">(current)</span></a>
+
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false"
+            aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  </nav>
+</section>
+<section id="personalDetailContainer">
+  <div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+      <table class="table">
+        <thead th:if="${not #lists.isEmpty(details)}">
+        <tr>
+          <th scope="col">Id</th>
+          <th scope="col">Name</th>
+          <th scope="col">Age</th>
+          <th scope="col">Number</th>
+          <th scope="col">Email</th>
+          <th scope="col">Height</th>
+          <th scope="col">Weight</th>
+          <th scope="col">diet</th>
+          <th scope="col">Favourite Recipe</th>
+          <th scope="col">Start Planning</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="detail : ${details}">
+          <td th:text=${detail.id}></td>
+          <td th:text=${detail.name}></td>
+          <td th:text=${detail.age}></td>
+          <td th:text=${detail.number}></td>
+          <td th:text=${detail.email}></td>
+          <td th:text=${detail.height}></td>
+          <td th:text=${detail.weight}></td>
+          <td th:text=${detail.diet}></td>
+          <td th:text=${detail.recipe}></td>
+          <td>
+            <form th:action="@{/todos}" method="GET" enctype="multipart/form-data">
+              <div class="form-group">
+                <a th:href="@{planning}">Start Planning</a>
+              </div>
+            </form>
+          </td>
+
+        </tr>
+        </tbody>
+      </table>
+      <div class="container">
+      <div class="d-flex justify-content-center">
+        <a class="btn btn-success btn-lg text-white" data-toggle="modal"
+           data-target="#viewModal">Enter Your Details</a>
+        <a class="btn btn-primary btn-lg text-white" data-toggle="modal"
+           data-target="#viewModal1">Edit</a>
+        <a class="btn btn-danger btn-lg text-white" data-toggle="modal"
+           data-target="#viewModal2">Delete</a>
+      </div>
+    </div>
+    <div class="col-md-2"></div>
+  </div>
+
+  <!-- View Modal -->
+  <div class="modal fade" id="viewModal" tabindex="-1" role="dialog"
+       aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Enter Your Details</h5>
+          <button type="button" class="close" data-dismiss="modal"
+                  aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form th:action="@{/addDetails}" method="POST"
+                th:object="${form}">
+            <div class="form-group">
+              <label for="name">Enter Name</label> <input
+                    type="text" class="form-control" name="name"
+                    placeholder="Enter Your Name">
+            </div>
+            <div class="form-group">
+              <label for="age">Enter Age</label> <input
+                    type="text" class="form-control" name="age"
+                    placeholder="Enter Your Age">
+            </div>
+            <div class="form-group">
+              <label for="number">Enter Contact No</label> <input
+                    type="text" class="form-control" name="number"
+                    placeholder="Enter Your contact number">
+            </div>
+            <div class="form-group">
+              <label for="email">Enter Email</label> <input
+                    type="text" class="form-control" name="email"
+                    placeholder="Enter Your email">
+            </div>
+            <div class="form-group">
+              <label for="height">Enter Height</label> <input
+                    type="text" class="form-control" name="height"
+                    placeholder="Enter Your height">
+            </div>
+            <div class="form-group">
+              <label for="weight">Enter Weight</label> <input
+                    type="text" class="form-control" name="weight"
+                    placeholder="Enter Your weight">
+            </div>
+            <div class="form-group">
+              <label for="diet">Select Diet</label><select
+                    class="form-control" name="diet">
+              <option></option>
+              <option>vegetarian</option>
+              <option>non-vegetarian</option>
+            </select>
+            </div>
+            <div class="form-group">
+              <label for="recipe">Enter Your Favourite Food</label> <input
+                    type="text" class="form-control" name="recipe"
+                    placeholder="Enter Your Favourite Food">
+            </div>
+            <button type="button" class="btn btn-secondary"
+                    data-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-primary">Submit Details</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal fade" id="viewModal1" tabindex="-1" role="dialog"
+       aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+
+        <div class="modal-body">
+          <form th:action="@{/editDetail}" method="POST"
+                th:object="${form}">
+            <div class="form-group">
+              <label for="id">Enter Id</label> <input
+                    type="text" class="form-control" name="id"
+                    placeholder="Enter Id">
+            </div>
+
+            <button type="button" class="btn btn-secondary"
+                    data-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-primary">Edit</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal fade" id="viewModal2" tabindex="-1" role="dialog"
+       aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+
+        <div class="modal-body">
+          <form th:action="@{/deleteDetail}" method="POST"
+                th:object="${form}">
+            <div class="form-group">
+              <label for="id">Enter Id</label> <input
+                    type="text" class="form-control" name="id"
+                    placeholder="Enter Id">
+            </div>
+
+            <button type="button" class="btn btn-secondary"
+                    data-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-primary">Delete</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+</section>
+<div class="footer">
+  <p>Created with spoonacular API </p>
+</div>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script
+        src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script
+        src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+</html>

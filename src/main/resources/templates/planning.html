@@ -5,13 +5,29 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <title>Daily Meal Plan Page</title>
+<style type="text/css">
+    .footer {
+   position: static;
+   left: 0;
+   bottom: 0;
+   width: 100%;
+   background-color: #860606;
+   color: white;
+   text-align: center;
+   height: 25px;
+    margin-top: 200px;
+}
+</style>
 <link rel="stylesheet"
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 </head>
 <body>
 	<section id="header">
-		<nav class="navbar navbar-expand-lg navbar-light bg-light">
-			<a class="navbar-brand" href="#">Daily Meal Plan</a>
+		<nav class="navbar navbar-expand-lg navbar-light bg-light" style=
+				"background-color: #911c1c!important">
+			<a class="navbar-brand" href="home" style="color:white;">Daily Meal Planner <span class="sr-only">(current)</span></a>
+
+
 			<button class="navbar-toggler" type="button" data-toggle="collapse"
 				data-target="#navbarSupportedContent"
 				aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -29,22 +45,41 @@
 						<tr>
 							<th scope="col">Title</th>
 							<th scope="col">Time to Prepare</th>
+							<th scope="col">Health Score</th>
 							<th scope="col">Steps</th>
+							<th scope="col">Image</th>
 						</tr>
 					</thead>
 					<tbody>
 						<tr th:each="meal : ${meals}">
 							<td th:text=${meal.name}></td>
 							<td th:text=${meal.readyInMinutes}></td>
+							<td th:text=${meal.healthScore}></td>
 							<td th:text=${meal.instructions}></td>
+							<td>
+								<img th:src="${meal.image}"  class="center" height=300% width=300% /><br>
+
+							</td>
 						</tr>
 					</tbody>
 				</table>
-				<div class="d-flex justify-content-center">
+				<div class="d-flex justify-content-center" th:if="${#lists.isEmpty(meals)}">
 					<a class="btn btn-success btn-lg text-white" data-toggle="modal"
 						data-target="#viewModal">Generate Meal Plan</a>
 				</div>
-			</div>
+				</br>
+				</br>
+				</br>
+				</br>
+				<div class="d-flex justify-content-center" th:if="${#lists.isEmpty(meals)}">
+					<img th:src="@{/images/mealplan.jpg}"  class="center" height=80% width=80% /><br>
+
+				</div></br>
+				<div class="d-flex justify-content-center" th:if="${not #lists.isEmpty(meals)}">
+				<button  onclick="window.print()" class="btn btn-success btn-lg text-white">Print Recipe</button>
+				</div>
+				</div>
+
 			<div class="col-md-2"></div>
 		</div>
 
@@ -76,6 +111,7 @@
 									<option>ketogenic</option>
 									<option>gluten-free</option>
 									<option>paleo</option>
+									<option>non-vegetarian</option>
 									<option>vegetarian</option>
 									<option>vegan</option>
 								</select>
@@ -89,6 +125,9 @@
 			</div>
 		</div>
 	</section>
+	<div class="footer">
+		<p>Created with spoonacular API </p>
+	</div>
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
 	<script
 		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
